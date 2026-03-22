@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --arc-bg: #0A0A0F;
+    --arc-surface: #111118;
+    --arc-border: #1E1E2E;
+    --arc-primary: #6366F1;
+    --arc-secondary: #8B5CF6;
+    --arc-cyan: #22D3EE;
+    --arc-muted: #71717A;
+    --arc-text: #F4F4F5;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-arc-bg text-arc-text antialiased;
+  }
+
+  * {
+    @apply border-arc-border;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-gradient-to-r from-indigo-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent;
+  }
+
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  .glow-indigo {
+    box-shadow: 0 0 60px rgba(99, 102, 241, 0.15);
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 60px rgba(34, 211, 238, 0.15);
+  }
+}
