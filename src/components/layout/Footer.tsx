@@ -1,20 +1,24 @@
 import Link from 'next/link'
-
-const footerLinks = [
-  { label: 'Products', href: '/#products' },
-  { label: 'ArcBot', href: '/products/arcbot' },
-  { label: 'ArcFlow', href: '/products/arcflow' },
-  { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
-]
+import { useTranslations, useLocale } from 'next-intl'
 
 export default function Footer() {
+  const t = useTranslations('footer')
+  const tNav = useTranslations('nav')
+  const locale = useLocale()
+
+  const footerLinks = [
+    { label: tNav('products'), href: `/${locale}/#products` },
+    { label: 'ArcBot', href: `/${locale}/products/arcbot` },
+    { label: 'ArcFlow', href: `/${locale}/products/arcflow` },
+    { label: tNav('about'), href: `/${locale}/about` },
+    { label: tNav('contact'), href: `/${locale}/contact` },
+  ]
+
   return (
     <footer className="border-t border-arc-border mt-24">
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
+          <Link href={`/${locale}`} className="flex items-center gap-2">
             <div className="w-7 h-7 rounded-md bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center">
               <span className="text-white font-bold text-xs">A</span>
             </div>
@@ -23,7 +27,6 @@ export default function Footer() {
             </span>
           </Link>
 
-          {/* Links */}
           <div className="flex flex-wrap justify-center gap-6">
             {footerLinks.map((link) => (
               <Link
@@ -36,9 +39,8 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* Copyright */}
           <p className="text-arc-muted text-sm">
-            © {new Date().getFullYear()} ArcAI. All rights reserved.
+            {t('copyright', { year: new Date().getFullYear() })}
           </p>
         </div>
       </div>

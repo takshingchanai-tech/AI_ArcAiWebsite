@@ -1,0 +1,115 @@
+{
+  "nav": {
+    "products": "產品",
+    "about": "關於我們",
+    "contact": "聯絡我們",
+    "getStarted": "立即開始",
+    "toggleMenu": "切換選單"
+  },
+  "footer": {
+    "copyright": "© {year} ArcAI. 版權所有。"
+  },
+  "hero": {
+    "badge": "專為中小企業打造的客製化 AI",
+    "headline1": "打造真正適合",
+    "headline2": "您企業的",
+    "headline3": "AI 助理。",
+    "sub": "ArcAI 協助中小企業快速部署強大的客製化 AI 助理——從智能聊天機器人到全流程自動化，無需龐大的企業級預算。",
+    "cta1": "立即開始",
+    "cta2": "探索產品",
+    "scroll": "向下滾動瞭解更多"
+  },
+  "productsSection": {
+    "heading": "我們的產品",
+    "sub": "專為您現有工作流程設計的 AI 工具——無需任何 AI 專業知識。"
+  },
+  "cta": {
+    "heading": "準備好打造您的 AI 了嗎？",
+    "sub": "立即聯繫我們，我們將在數天內為您的業務設計量身定制的 AI 解決方案。",
+    "button": "開啟對話"
+  },
+  "about": {
+    "label": "關於 ArcAI",
+    "headline1": "AI 應該配合您的業務，",
+    "headline2": "而非反過來。",
+    "intro": "ArcAI 的成立源於一個信念：強大的 AI 不應只屬於大型企業。中小企業同樣值得擁有相同的能力——而無需天文數字的諮詢費用。",
+    "missionLabel": "我們的使命",
+    "mission": "讓企業級 AI 對每家中小企業都觸手可及——提供安全、精準、從第一天起就真正有用的產品。",
+    "valuesHeading": "我們的核心價值",
+    "whyLabel": "為什麼選擇 ArcAI",
+    "quote": "我們創立 ArcAI，是因為我們不斷看到優秀的企業被現代 AI 的複雜性和成本所阻礙。我們的目標很簡單：打造足夠強大、同時又足夠簡單讓您真正願意使用的工具。",
+    "values": {
+      "v1": { "title": "為真實企業而建", "desc": "我們設計的 AI 工具能在中小企業真實、複雜的運營環境中運作——而非理想化的企業場景。" },
+      "v2": { "title": "安全優先", "desc": "每款產品均內建防護機制，防止幻覺輸出、保護敏感資料，並確保 AI 行為可預測且可稽核。" },
+      "v3": { "title": "極致簡單", "desc": "使用 AI 不需要 AI 團隊。我們的產品設計為數小時內完成配置，並可由團隊中的任何人維護。" },
+      "v4": { "title": "誠信合作", "desc": "我們與每位客戶緊密協作，打造真正符合其需求的解決方案——並在 AI 不適合時坦誠告知。" }
+    }
+  },
+  "contact": {
+    "label": "聯絡我們",
+    "headline1": "讓我們一起",
+    "headline2": "打造您的 AI。",
+    "sub": "無論您已有明確需求，還是剛開始探索 AI 能為業務帶來什麼，我們都歡迎與您交流。填寫表單，我們將在 1 個工作天內回覆。",
+    "email": "hello@arcai.io",
+    "replyTime": "典型回覆時間：24 小時內",
+    "form": {
+      "nameLabel": "您的姓名",
+      "namePlaceholder": "王小明",
+      "emailLabel": "工作信箱",
+      "emailPlaceholder": "name@company.com",
+      "companyLabel": "公司名稱",
+      "companyPlaceholder": "ABC 有限公司",
+      "messageLabel": "我們能如何協助您？",
+      "messagePlaceholder": "請告訴我們您的業務情況，以及您希望 AI 能解決的問題...",
+      "submit": "發送訊息",
+      "successTitle": "訊息已收到！",
+      "successSub": "感謝您的聯繫，我們將在 1 個工作天內回覆您。"
+    }
+  },
+  "products": {
+    "backLink": "所有產品",
+    "getStarted": "立即開始使用 {name}",
+    "featuresHeading": "您所需的一切",
+    "useCasesHeading": "為真實業務需求而建",
+    "arcbot": {
+      "name": "ArcBot",
+      "tagline": "您的 AI 驅動第一線。",
+      "shortDescription": "一款穩健、可靠、精準的 AI 聊天機器人，專為您的企業打造，數分鐘內即可部署。",
+      "tags": ["可靠", "安全", "精準", "可客製"],
+      "description": "ArcBot 是專為中小企業設計的客製化 AI 助理。它以您的業務所需的精確度與安全性，處理客戶諮詢、內部支援工單及知識檢索。基於最新大型語言模型，並針對您的企業資料進行微調，ArcBot 每次都能精準回應。",
+      "features": [
+        { "icon": "Shield", "title": "企業級安全", "description": "內建防護機制、內容審核及幻覺抑制，確保每次回應都符合品牌形象且有事實依據。" },
+        { "icon": "Zap", "title": "即時回應", "description": "透過優化的推論管線實現毫秒級回應速度——您的客戶無需等待。" },
+        { "icon": "Brain", "title": "上下文記憶", "description": "ArcBot 記住完整對話上下文，提供自然流暢的多輪對話體驗。" },
+        { "icon": "FileText", "title": "知識庫整合", "description": "上傳您的 FAQ、產品手冊或內部 Wiki，ArcBot 每次都能準確檢索並引用正確資訊。" },
+        { "icon": "Globe", "title": "多語言支援", "description": "無需額外設定，即可與超過 50 種語言的客戶進行溝通。" },
+        { "icon": "BarChart2", "title": "分析儀表板", "description": "從統一儀表板追蹤對話量、解決率及客戶滿意度分數。" }
+      ],
+      "useCases": [
+        { "title": "客戶服務", "description": "以 AI 取代第一線支援工單，全天候即時解決 80% 的常見問題。" },
+        { "title": "內部服務台", "description": "讓員工無需等待，即可查詢人資政策、IT 程序及公司規範。" },
+        { "title": "銷售助理", "description": "自動篩選潛在客戶、回答產品問題並預約演示——無需人工介入。" }
+      ]
+    },
+    "arcflow": {
+      "name": "ArcFlow",
+      "tagline": "自動化工作，放大團隊效能。",
+      "shortDescription": "一款 AI 工作流程協調平台，連接您現有工具並自動化多步驟業務流程。",
+      "tags": ["自動化", "整合", "可擴展"],
+      "description": "ArcFlow 是專為中小企業真實運營方式打造的智能工作流程自動化平台。它連接您的 CRM、電子郵件、Slack、ERP 及團隊依賴的任何其他工具——然後協調由真實業務事件觸發的多步驟自動化流程。停止重複做同樣的事。",
+      "features": [
+        { "icon": "GitBranch", "title": "工作流程協調", "description": "透過視覺化建構器設計分支條件工作流程，AI 填補您未預料到的邏輯缺口。" },
+        { "icon": "Plug", "title": "原生整合", "description": "預建 Salesforce、HubSpot、Gmail、Slack、Notion、Jira 及 100+ 其他工具的連接器。" },
+        { "icon": "BarChart2", "title": "即時分析", "description": "即時監控自動化效能、發現瓶頸並衡量節省的時間。" },
+        { "icon": "Bell", "title": "智能觸發器", "description": "透過排程、Webhook、郵件事件、表單提交或 AI 偵測的業務訊號啟動工作流程。" },
+        { "icon": "Lock", "title": "角色存取控制", "description": "透過細粒度的權限設定，控制誰可以建立、執行或查看每個工作流程。" },
+        { "icon": "RefreshCw", "title": "錯誤恢復", "description": "自動重試、備用路徑及人工介入升級，確保工作流程在出現問題時仍能持續運行。" }
+      ],
+      "useCases": [
+        { "title": "潛在客戶培育", "description": "自動豐富新潛在客戶資料、分配給銷售代表並觸發個人化郵件序列——完全無需人工操作。" },
+        { "title": "發票處理", "description": "自動從收到的發票中提取資料、與採購訂單比對，並自動路由至審批。" },
+        { "title": "員工入職", "description": "一旦 HR 確認新進員工，立即觸發帳號開通、歡迎郵件及培訓任務分配。" }
+      ]
+    }
+  }
+}

@@ -1,18 +1,21 @@
-import { UseCase } from '@/types'
 import AnimatedSection from '@/components/ui/AnimatedSection'
+
+interface UseCase {
+  title: string
+  description: string
+}
 
 interface UseCaseListProps {
   useCases: UseCase[]
   accentColor: string
+  heading: string
 }
 
-export default function UseCaseList({ useCases, accentColor }: UseCaseListProps) {
+export default function UseCaseList({ useCases, accentColor, heading }: UseCaseListProps) {
   return (
     <section className="max-w-5xl mx-auto px-6 py-8 pb-24">
       <AnimatedSection>
-        <h2 className="text-2xl sm:text-3xl font-bold text-arc-text mb-10">
-          Built for real business needs
-        </h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-arc-text mb-10">{heading}</h2>
       </AnimatedSection>
       <div className="flex flex-col gap-4">
         {useCases.map((uc, i) => (

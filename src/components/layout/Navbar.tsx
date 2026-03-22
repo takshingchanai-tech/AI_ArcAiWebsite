@@ -3,17 +3,15 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useScroll, useMotionValueEvent, motion, AnimatePresence } from 'framer-motion'
+import { useTranslations, useLocale } from 'next-intl'
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { clsx } from 'clsx'
-
-const navLinks = [
-  { label: 'Products', href: '/#products' },
-  { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
-]
+import LanguageSwitcher from './LanguageSwitcher'
 
 export default function Navbar() {
+  const t = useTranslations('nav')
+  const locale = useLocale()
   const pathname = usePathname()
   const { scrollY } = useScroll()
   const [scrolled, setScrolled] = useState(false)
@@ -22,6 +20,12 @@ export default function Navbar() {
   useMotionValueEvent(scrollY, 'change', (y) => {
     setScrolled(y > 20)
   })
+
+  const navLinks = [
+    { label: t('products'), href: `/${locale}/#products` },
+    { label: t('about'), href: `/${locale}/about` },
+    { label: t('contact'), href: `/${locale}/contact` },
+  ]
 
   return (
     <motion.header
@@ -37,7 +41,7 @@ export default function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
+        <Link href={`/${locale}`} className="flex items-center gap-2 group">
           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-lg">
             <span className="text-white font-bold text-sm">A</span>
           </div>
@@ -47,7 +51,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -62,11 +66,12 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+          <LanguageSwitcher />
           <Link
-            href="/contact"
-            className="ml-2 px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium transition-colors duration-200"
+            href={`/${locale}/contact`}
+            className="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium transition-colors duration-200"
           >
-            Get Started
+            {t('getStarted')}
           </Link>
         </div>
 
@@ -74,7 +79,7 @@ export default function Navbar() {
         <button
           className="md:hidden text-arc-muted hover:text-arc-text transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
+          aria-label={t('toggleMenu')}
         >
           {mobileOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
@@ -101,12 +106,13 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
+              <LanguageSwitcher />
               <Link
-                href="/contact"
+                href={`/${locale}/contact`}
                 onClick={() => setMobileOpen(false)}
                 className="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium text-center transition-colors"
               >
-                Get Started
+                {t('getStarted')}
               </Link>
             </div>
           </motion.div>

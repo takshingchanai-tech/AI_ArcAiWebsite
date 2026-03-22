@@ -3,16 +3,17 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown } from 'lucide-react'
+import { useTranslations, useLocale } from 'next-intl'
 import GradientText from '@/components/ui/GradientText'
 
 export default function HeroSection() {
+  const t = useTranslations('hero')
+  const locale = useLocale()
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-16 overflow-hidden">
       {/* Background gradient orbs */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        aria-hidden="true"
-      >
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-indigo-600/10 blur-3xl animate-float" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-violet-600/10 blur-3xl animate-float-delayed" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-cyan-500/5 blur-3xl" />
@@ -29,7 +30,6 @@ export default function HeroSection() {
         aria-hidden="true"
       />
 
-      {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         {/* Badge */}
         <motion.div
@@ -39,7 +39,7 @@ export default function HeroSection() {
           transition={{ duration: 0.5 }}
         >
           <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse-slow" />
-          Customized AI for Small & Medium Enterprises
+          {t('badge')}
         </motion.div>
 
         {/* Headline */}
@@ -49,10 +49,10 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          Build AI that{' '}
-          <GradientText>works for your</GradientText>
+          {t('headline1')}{' '}
+          <GradientText>{t('headline2')}</GradientText>
           <br />
-          business.
+          {t('headline3')}
         </motion.h1>
 
         {/* Sub-headline */}
@@ -62,9 +62,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          ArcAI helps SMEs deploy powerful, customized AI assistants — from
-          intelligent chatbots to full workflow automation — without the
-          enterprise price tag.
+          {t('sub')}
         </motion.p>
 
         {/* CTAs */}
@@ -75,17 +73,17 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <Link
-            href="/contact"
+            href={`/${locale}/contact`}
             className="flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium transition-all duration-200 hover:shadow-lg hover:shadow-indigo-500/25 group"
           >
-            Get Started
+            {t('cta1')}
             <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
           </Link>
           <Link
-            href="/#products"
+            href={`/${locale}/#products`}
             className="flex items-center gap-2 px-6 py-3 rounded-xl border border-arc-border hover:border-white/20 text-arc-text font-medium transition-all duration-200 hover:bg-white/5"
           >
-            Explore Products
+            {t('cta2')}
           </Link>
         </motion.div>
       </div>
@@ -97,7 +95,7 @@ export default function HeroSection() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.8 }}
       >
-        <span className="text-xs">Scroll to explore</span>
+        <span className="text-xs">{t('scroll')}</span>
         <ChevronDown size={16} className="animate-bounce" />
       </motion.div>
     </section>
