@@ -16,7 +16,7 @@ export const productsMeta: ProductMeta[] = [
     gradientFrom: 'from-indigo-600',
     gradientTo: 'to-violet-600',
     bgGradient: 'radial-gradient(ellipse at 20% 50%, rgba(99,102,241,0.08) 0%, transparent 60%)',
-    featureIcons: ['Shield', 'Zap', 'Brain', 'FileText', 'Globe', 'BarChart2'],
+    featureIcons: ['Layers', 'Filter', 'Network', 'Shield', 'Lock', 'Target'],
   },
   {
     id: 'arcflow',

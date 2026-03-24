@@ -69,27 +69,70 @@
   "products": {
     "backLink": "All Products",
     "getStarted": "Get Started with {name}",
-    "featuresHeading": "Everything you need",
+    "featuresHeading": "ArcBot Basic — Technical Capabilities",
     "useCasesHeading": "Built for real business needs",
     "arcbot": {
       "name": "ArcBot",
       "tagline": "Your AI-powered frontline.",
       "shortDescription": "A robust, reliable, and accurate AI chatbot built for your business — deployable in minutes.",
-      "tags": ["Reliable", "Safe", "Accurate", "Customizable"],
-      "description": "ArcBot is a customized AI assistant designed for small and medium-sized enterprises. It handles customer inquiries, internal support tickets, and knowledge retrieval with the precision and safety your business demands. Powered by the latest large language models and fine-tuned to your company data, ArcBot responds accurately — every time.",
+      "tags": ["Hybrid Search", "GraphRAG", "Evaluated", "Secure", "Scalable"],
+      "description": "ArcBot is ArcAI's flagship conversational AI — available in three editions to match every scale of business need. ArcBot Basic delivers production-grade document intelligence on your company knowledge base: a rigorously evaluated RAG pipeline combining Hybrid Search, Cross-Encoder reranking, and GraphRAG, all wrapped in enterprise-grade safety and security.",
       "features": [
-        { "icon": "Shield", "title": "Enterprise Safety", "description": "Built-in guardrails, content moderation, and hallucination reduction keep every response on-brand and factually grounded." },
-        { "icon": "Zap", "title": "Instant Responses", "description": "Sub-second response times powered by optimized inference pipelines — your customers never wait." },
-        { "icon": "Brain", "title": "Contextual Memory", "description": "ArcBot remembers the full conversation context, delivering coherent multi-turn dialogues that feel natural." },
-        { "icon": "FileText", "title": "Knowledge Integration", "description": "Upload your FAQs, product manuals, or internal wikis. ArcBot retrieves and cites the right information every time." },
-        { "icon": "Globe", "title": "Multilingual", "description": "Communicate with customers in over 50 languages without any additional setup or configuration." },
-        { "icon": "BarChart2", "title": "Analytics Dashboard", "description": "Track conversation volumes, resolution rates, and customer satisfaction scores from a unified dashboard." }
+        { "icon": "Layers", "title": "Hybrid Search", "description": "Combines Dense Search (semantic vector embeddings) with Sparse Search (BM25 keyword matching) for best-of-both-worlds retrieval that never misses relevant content." },
+        { "icon": "Filter", "title": "Cross-Encoder Reranking", "description": "A Cross-Encoder model (BGE-Reranker or Cohere Rerank) re-evaluates the top 50–100 retrieved chunks, surfacing the most relevant passages before generation." },
+        { "icon": "Network", "title": "GraphRAG", "description": "Knowledge Graph integration maps entity relationships and document structure, enabling accurate multi-hop reasoning that flat vector search cannot achieve." },
+        { "icon": "Shield", "title": "Safety & Guardrails", "description": "Multi-layer content moderation, prompt injection detection, PII redaction, and hallucination suppression keep every response trustworthy and on-brand." },
+        { "icon": "Lock", "title": "Enterprise Security & Scale", "description": "AES-256 encryption at rest and in transit, strict tenant isolation, SOC-2-aligned audit logging, and horizontal scaling to handle millions of document chunks." },
+        { "icon": "Target", "title": "Benchmarked Accuracy", "description": "Every deployment is evaluated with RAGAS metrics — Answer Correctness, Context Recall, and Faithfulness — so you have measurable evidence it works before going live." }
       ],
       "useCases": [
         { "title": "Customer Service", "description": "Replace tier-1 support tickets with an AI that resolves 80% of common queries instantly, 24/7." },
         { "title": "Internal Help Desk", "description": "Let employees query HR policies, IT procedures, and company guidelines without waiting for a response." },
         { "title": "Sales Assistant", "description": "Qualify leads, answer product questions, and book demo calls — all without human intervention." }
-      ]
+      ],
+      "versionsHeading": "ArcBot Editions",
+      "versionsSub": "Three tiers of conversational AI — from production-grade RAG to fully agentic systems — all built on the same battle-tested core.",
+      "versions": {
+        "basic": {
+          "name": "ArcBot Basic",
+          "status": "Available Now",
+          "tagline": "Production-grade RAG, rigorously tested.",
+          "caps": [
+            "Hybrid Dense + Sparse (BM25) retrieval",
+            "Cross-Encoder reranker on top 50–100 chunks",
+            "GraphRAG with Knowledge Graph traversal",
+            "RAGAS-benchmarked accuracy on every deployment",
+            "Multi-layer safety guardrails & prompt injection defense",
+            "AES-256 encryption & strict tenant isolation"
+          ]
+        },
+        "mega": {
+          "name": "ArcBot Mega",
+          "status": "Coming Soon",
+          "tagline": "Enterprise document intelligence, fine-tuned to your domain.",
+          "caps": [
+            "Everything in ArcBot Basic",
+            "Multi-format ingestion: PDF, Word, Excel, HTML, images & more",
+            "Domain-specific fine-tuning on your industry vocabulary",
+            "Custom embedding models per client",
+            "Million-document scale with optimized vector stores",
+            "State-of-the-art LLM backbone with highest capability tier"
+          ]
+        },
+        "agent": {
+          "name": "ArcBot Agent",
+          "status": "Coming Soon",
+          "tagline": "Thinks, plans, and acts with tools.",
+          "caps": [
+            "Everything in ArcBot Mega",
+            "Autonomous multi-step planning and execution",
+            "Tool use: web search, API calls, code execution",
+            "Real-time external data retrieval",
+            "Human-in-the-loop escalation controls",
+            "Full immutable audit trail of every agent action"
+          ]
+        }
+      }
     },
     "arcflow": {
       "name": "ArcFlow",

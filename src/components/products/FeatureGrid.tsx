@@ -1,6 +1,7 @@
 import {
   Shield, Zap, Brain, FileText, Globe, BarChart2,
-  GitBranch, Plug, Bell, Lock, RefreshCw, LucideIcon,
+  GitBranch, Plug, Bell, Lock, RefreshCw,
+  Layers, Filter, Network, Target, LucideIcon,
 } from 'lucide-react'
 import GlassCard from '@/components/ui/GlassCard'
 import AnimatedSection from '@/components/ui/AnimatedSection'
@@ -8,6 +9,7 @@ import AnimatedSection from '@/components/ui/AnimatedSection'
 const iconMap: Record<string, LucideIcon> = {
   Shield, Zap, Brain, FileText, Globe, BarChart2,
   GitBranch, Plug, Bell, Lock, RefreshCw,
+  Layers, Filter, Network, Target,
 }
 
 interface Feature {

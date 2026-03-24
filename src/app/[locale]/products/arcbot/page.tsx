@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 import ProductHero from '@/components/products/ProductHero'
 import FeatureGrid from '@/components/products/FeatureGrid'
 import UseCaseList from '@/components/products/UseCaseList'
+import ArcBotVersions from '@/components/products/ArcBotVersions'
 
 export const metadata: Metadata = {
   title: 'ArcBot — AI Chatbot for SMEs',
@@ -38,6 +39,7 @@ export default function ArcBotPage() {
         description={t('description')}
         getStartedLabel={tP('getStarted', { name: t('name') })}
       />
+      <ArcBotVersions accentColor={meta.accentColor} />
       <FeatureGrid
         features={features}
         accentColor={meta.accentColor}

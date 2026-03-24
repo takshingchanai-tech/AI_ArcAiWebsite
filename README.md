@@ -58,7 +58,7 @@ Each page exists in all 3 locales (18 total static pages):
 | Route | Description |
 |---|---|
 | `/[locale]/` | Homepage — hero + product banners |
-| `/[locale]/products/arcbot` | ArcBot product detail |
+| `/[locale]/products/arcbot` | ArcBot product detail — editions overview + ArcBot Basic technical capabilities |
 | `/[locale]/products/arcflow` | ArcFlow product detail |
 | `/[locale]/about` | About ArcAI |
 | `/[locale]/contact` | Contact form |
@@ -83,7 +83,7 @@ src/
 ├── components/
 │   ├── layout/               # Navbar, Footer, LanguageSwitcher
 │   ├── home/                 # HeroSection, ProductSection
-│   ├── products/             # ProductHero, FeatureGrid, UseCaseList
+│   ├── products/             # ProductHero, FeatureGrid, UseCaseList, ArcBotVersions
 │   ├── ui/                   # GlassCard, Tag, AnimatedSection, etc.
 │   └── contact/              # ContactForm
 ├── messages/                 # en.json, zh-TW.json, zh-CN.json

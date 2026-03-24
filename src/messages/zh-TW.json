@@ -69,27 +69,70 @@
   "products": {
     "backLink": "所有產品",
     "getStarted": "立即開始使用 {name}",
-    "featuresHeading": "您所需的一切",
+    "featuresHeading": "ArcBot Basic — 技術能力",
     "useCasesHeading": "為真實業務需求而建",
     "arcbot": {
       "name": "ArcBot",
       "tagline": "您的 AI 驅動第一線。",
       "shortDescription": "一款穩健、可靠、精準的 AI 聊天機器人，專為您的企業打造，數分鐘內即可部署。",
-      "tags": ["可靠", "安全", "精準", "可客製"],
-      "description": "ArcBot 是專為中小企業設計的客製化 AI 助理。它以您的業務所需的精確度與安全性，處理客戶諮詢、內部支援工單及知識檢索。基於最新大型語言模型，並針對您的企業資料進行微調，ArcBot 每次都能精準回應。",
+      "tags": ["混合搜尋", "GraphRAG", "可評估", "安全", "可擴展"],
+      "description": "ArcBot 是 ArcAI 的旗艦對話式 AI——提供三個版本以滿足各種規模的業務需求。ArcBot Basic 在您的企業知識庫上提供生產級文件智能：一個嚴格評估的 RAG 管線，結合混合搜尋、交叉編碼器重排序與 GraphRAG，並以企業級安全防護為基礎。",
       "features": [
-        { "icon": "Shield", "title": "企業級安全", "description": "內建防護機制、內容審核及幻覺抑制，確保每次回應都符合品牌形象且有事實依據。" },
-        { "icon": "Zap", "title": "即時回應", "description": "透過優化的推論管線實現毫秒級回應速度——您的客戶無需等待。" },
-        { "icon": "Brain", "title": "上下文記憶", "description": "ArcBot 記住完整對話上下文，提供自然流暢的多輪對話體驗。" },
-        { "icon": "FileText", "title": "知識庫整合", "description": "上傳您的 FAQ、產品手冊或內部 Wiki，ArcBot 每次都能準確檢索並引用正確資訊。" },
-        { "icon": "Globe", "title": "多語言支援", "description": "無需額外設定，即可與超過 50 種語言的客戶進行溝通。" },
-        { "icon": "BarChart2", "title": "分析儀表板", "description": "從統一儀表板追蹤對話量、解決率及客戶滿意度分數。" }
+        { "icon": "Layers", "title": "混合搜尋", "description": "結合稠密搜尋（語義向量嵌入）與稀疏搜尋（BM25 關鍵詞匹配），實現最佳化的內容檢索，確保不遺漏任何相關資訊。" },
+        { "icon": "Filter", "title": "交叉編碼器重排序", "description": "交叉編碼器模型（BGE-Reranker 或 Cohere Rerank）對前 50–100 個檢索片段重新評估，在生成前篩選出最相關的段落。" },
+        { "icon": "Network", "title": "GraphRAG 知識圖譜", "description": "知識圖譜整合映射實體關係與文件結構，實現純向量搜尋無法達到的精準多跳推理能力。" },
+        { "icon": "Shield", "title": "安全防護機制", "description": "多層內容審核、提示注入偵測、個人資料脫敏及幻覺抑制，確保每次回應都值得信賴且符合品牌形象。" },
+        { "icon": "Lock", "title": "企業安全與擴展性", "description": "靜態及傳輸中的 AES-256 加密、嚴格的租戶隔離、符合 SOC-2 的稽核日誌，以及處理數百萬文件片段的水平擴展能力。" },
+        { "icon": "Target", "title": "可衡量的準確度", "description": "每個部署均以 RAGAS 指標評估——答案正確性、情境召回率與忠實度——讓您在上線前獲得可量化的效能證明。" }
       ],
       "useCases": [
         { "title": "客戶服務", "description": "以 AI 取代第一線支援工單，全天候即時解決 80% 的常見問題。" },
         { "title": "內部服務台", "description": "讓員工無需等待，即可查詢人資政策、IT 程序及公司規範。" },
         { "title": "銷售助理", "description": "自動篩選潛在客戶、回答產品問題並預約演示——無需人工介入。" }
-      ]
+      ],
+      "versionsHeading": "ArcBot 版本",
+      "versionsSub": "三個層級的對話式 AI——從生產級 RAG 到完全自主系統——均基於同一個久經實戰考驗的核心。",
+      "versions": {
+        "basic": {
+          "name": "ArcBot Basic",
+          "status": "現已推出",
+          "tagline": "生產級 RAG，嚴格測試與評估。",
+          "caps": [
+            "混合稠密 + 稀疏（BM25）檢索",
+            "交叉編碼器對前 50–100 個片段重排序",
+            "GraphRAG 與知識圖譜遍歷",
+            "每次部署均有 RAGAS 基準評估分數",
+            "多層安全防護與提示注入防禦",
+            "AES-256 加密與嚴格租戶隔離"
+          ]
+        },
+        "mega": {
+          "name": "ArcBot Mega",
+          "status": "即將推出",
+          "tagline": "企業級文件智能，針對您的領域微調。",
+          "caps": [
+            "包含 ArcBot Basic 所有功能",
+            "多格式文件攝取：PDF、Word、Excel、HTML、圖片等",
+            "針對您行業術語的領域特定微調",
+            "每位客戶的專屬嵌入模型",
+            "以最佳化向量資料庫支援百萬文件規模",
+            "最高能力層級的最先進 LLM 核心"
+          ]
+        },
+        "agent": {
+          "name": "ArcBot Agent",
+          "status": "即將推出",
+          "tagline": "思考、規劃並使用工具執行任務。",
+          "caps": [
+            "包含 ArcBot Mega 所有功能",
+            "自主多步驟規劃與執行",
+            "工具使用：網路搜尋、API 呼叫、程式執行",
+            "即時外部資料檢索",
+            "人工介入升級控制",
+            "每次代理行動的完整不可篡改稽核紀錄"
+          ]
+        }
+      }
     },
     "arcflow": {
       "name": "ArcFlow",
