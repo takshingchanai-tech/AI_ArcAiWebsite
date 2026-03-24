@@ -66,8 +66,19 @@ Copy `.env.example` to `.env.local` and fill in the key. The key is never commit
 
 - **Floating button**: fixed bottom-right, gradient indigo/violet, large Bot icon + "Talk to Us" label, hidden when panel is open.
 - **Chat panel**: slides in from the right at `w-full sm:w-1/4 sm:min-w-[320px]`. Includes header with online indicator, scrollable message list, streaming text input, and reset button.
-- **API route**: `src/app/api/chat/route.ts` — `POST /api/chat`. Accepts `{ messages: Message[] }`, streams plain-text chunks from OpenAI `gpt-4o-mini` with a comprehensive ArcAI knowledge system prompt (products, RAG stack, values, contact).
+- **API route**: `src/app/api/chat/route.ts` — `POST /api/chat`. Accepts `{ messages: Message[] }`, streams plain-text chunks from OpenAI `gpt-4o-mini`. Uses a structured system prompt (not RAG) — see rationale below.
 - The OpenAI client is instantiated inside the handler (not at module level) to avoid build-time failures when `OPENAI_API_KEY` is absent. Route is `export const dynamic = 'force-dynamic'`.
+- `src/middleware.ts` excludes `/api` from the locale matcher — without this, `/api/chat` gets redirected to `/en/api/chat` and returns 404.
+- `next.config.mjs` sets `experimental.serverComponentsExternalPackages: ['openai']` (Next.js 14 syntax) to keep openai out of the browser bundle.
+
+### System Prompt vs RAG — Decision
+
+The website chatbot uses a **structured system prompt**, not RAG. Rationale:
+- Our knowledge base is ~3k tokens; GPT-4o-mini's context window is 128k tokens (we use ~2.3%)
+- RAG adds an extra embeddings API call per message, cold-start latency, and retrieval failure risk — all cost with no benefit at this scale
+- **Use RAG when**: knowledge base exceeds ~100 pages / 50k+ tokens, content updates frequently, or you need source citations
+
+`src/lib/rag.ts` and `src/lib/knowledge.ts` are kept as a **reference implementation** — this is the correct architecture for real ArcBot Basic deployments against large customer document repositories.
 
 ### ArcBot Editions
 

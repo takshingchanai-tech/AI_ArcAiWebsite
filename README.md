@@ -10,6 +10,7 @@ Marketing website for [ArcAI](https://arcai.io) — a company that helps small a
 - **Framer Motion** — animations and hover effects
 - **Lucide React** — icons
 - **next-intl v4** — internationalization (EN / 繁中 / 简中)
+- **OpenAI SDK v6** — powers the ArcBot chat widget (`gpt-4o-mini`, streaming)
 
 ## Getting Started
 
@@ -75,25 +76,29 @@ Each page exists in all 3 locales (18 total static pages):
 ```
 src/
 ├── app/
-│   └── [locale]/             # All pages scoped by locale
-│       ├── layout.tsx         # Locale layout (NextIntlClientProvider)
+│   ├── api/chat/route.ts      # POST /api/chat — ArcBot streaming chat endpoint
+│   └── [locale]/              # All pages scoped by locale
+│       ├── layout.tsx          # Locale layout (NextIntlClientProvider + ChatWidget)
 │       ├── page.tsx
 │       ├── about/
 │       ├── contact/
 │       └── products/arcbot|arcflow/
 ├── components/
-│   ├── layout/               # Navbar, Footer, LanguageSwitcher
-│   ├── home/                 # HeroSection, ProductSection
-│   ├── products/             # ProductHero, FeatureGrid, UseCaseList, ArcBotVersions
-│   ├── ui/                   # GlassCard, Tag, AnimatedSection, etc.
-│   └── contact/              # ContactForm
-├── messages/                 # en.json, zh-TW.json, zh-CN.json
+│   ├── chat/                  # ChatWidget (floating button + slide-in panel)
+│   ├── layout/                # Navbar, Footer, LanguageSwitcher
+│   ├── home/                  # HeroSection, ProductSection
+│   ├── products/              # ProductHero, FeatureGrid, UseCaseList, ArcBotVersions
+│   ├── ui/                    # GlassCard, Tag, AnimatedSection, etc.
+│   └── contact/               # ContactForm
+├── messages/                  # en.json, zh-TW.json, zh-CN.json
 ├── lib/
-│   ├── products.ts           # Non-translatable product metadata
+│   ├── products.ts            # Non-translatable product metadata
+│   ├── knowledge.ts           # ArcAI knowledge chunks (RAG reference)
+│   ├── rag.ts                 # RAG pipeline: embeddings + cosine retrieval (reference)
 │   └── fonts.ts
-├── i18n.ts                   # next-intl config
-├── routing.ts                # Locale routing definition
-├── middleware.ts             # Locale detection & redirect
+├── i18n.ts                    # next-intl config
+├── routing.ts                 # Locale routing definition
+├── middleware.ts              # Locale detection & redirect (excludes /api/*)
 └── types/
     └── index.ts
 ```
@@ -108,7 +113,21 @@ Set in `.env.local` locally. In Vercel, add via the project's Environment Variab
 
 ## ArcBot Chat Widget
 
-A floating **"Talk to Us"** button (bottom-right) opens a 1/4-screen chat panel powered by `gpt-4o-mini`. The bot knows ArcAI's full product catalog, RAG technical stack, and company values. It streams responses in real time and responds in the user's language.
+A floating **"Talk to Us"** button (bottom-right, indigo gradient) opens a 1/4-screen panel on the right side of every page.
+
+- Powered by `gpt-4o-mini` with a structured system prompt covering all ArcAI products, technical stack, values, and contact info
+- Streams tokens in real time — no wait for the full response
+- Responds in the user's language (EN / 繁中 / 简中 and more)
+- Includes reset button, online status indicator, and typing animation
+- **Why system prompt, not RAG**: the knowledge base is ~3k tokens — well within GPT-4o-mini's 128k context window. RAG is the right architecture when knowledge exceeds ~100 pages; for a fixed marketing knowledge base this size, a structured system prompt is simpler, faster, and more reliable. See `src/lib/rag.ts` and `src/lib/knowledge.ts` for the RAG reference implementation used in real ArcBot deployments.
+
+### Files
+| File | Role |
+|---|---|
+| `src/components/chat/ChatWidget.tsx` | Floating button + slide-in chat panel (`'use client'`) |
+| `src/app/api/chat/route.ts` | `POST /api/chat` — streams `gpt-4o-mini` responses |
+| `src/lib/knowledge.ts` | Structured knowledge chunks (reference — not used at runtime for website chatbot) |
+| `src/lib/rag.ts` | RAG pipeline: embed, cosine retrieval (reference — used in real ArcBot deployments) |
 
 ## Deployment
 
