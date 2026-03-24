@@ -52,6 +52,23 @@ Global utilities (`gradient-text`, `glass`, `glow-*`) are in `src/app/globals.cs
 
 Do not pass event handlers as props from a Server Component — use CSS hover classes or promote to a client component.
 
+### Environment Variables
+
+```bash
+OPENAI_API_KEY=sk-...   # Required for the ArcBot chat widget (/api/chat)
+```
+
+Copy `.env.example` to `.env.local` and fill in the key. The key is never committed (`.env*.local` is gitignored).
+
+### Chat Widget
+
+`ChatWidget` (`src/components/chat/ChatWidget.tsx`) is a `'use client'` component mounted globally in `src/app/[locale]/layout.tsx`.
+
+- **Floating button**: fixed bottom-right, gradient indigo/violet, large Bot icon + "Talk to Us" label, hidden when panel is open.
+- **Chat panel**: slides in from the right at `w-full sm:w-1/4 sm:min-w-[320px]`. Includes header with online indicator, scrollable message list, streaming text input, and reset button.
+- **API route**: `src/app/api/chat/route.ts` — `POST /api/chat`. Accepts `{ messages: Message[] }`, streams plain-text chunks from OpenAI `gpt-4o-mini` with a comprehensive ArcAI knowledge system prompt (products, RAG stack, values, contact).
+- The OpenAI client is instantiated inside the handler (not at module level) to avoid build-time failures when `OPENAI_API_KEY` is absent. Route is `export const dynamic = 'force-dynamic'`.
+
 ### ArcBot Editions
 
 `ArcBotVersions` (`src/components/products/ArcBotVersions.tsx`) renders the three-tier comparison section on the ArcBot page. Translation keys live under `products.arcbot.versions.{basic|mega|agent}` (name, status, tagline, caps array). Pass `accentColor` from `productsMeta`.

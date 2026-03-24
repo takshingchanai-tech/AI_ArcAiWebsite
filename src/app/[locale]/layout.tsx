@@ -5,6 +5,7 @@ import { inter } from '@/lib/fonts'
 import '@/app/globals.css'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import ChatWidget from '@/components/chat/ChatWidget'
 import { locales, type Locale } from '@/i18n'
 
 export function generateStaticParams() {
@@ -36,6 +37,7 @@ export default async function LocaleLayout({
           <Navbar />
           <main>{children}</main>
           <Footer />
+          <ChatWidget />
         </NextIntlClientProvider>
       </body>
     </html>

@@ -15,6 +15,7 @@ Marketing website for [ArcAI](https://arcai.io) — a company that helps small a
 
 ```bash
 npm install
+cp .env.example .env.local   # add your OPENAI_API_KEY
 npm run dev
 ```
 
@@ -96,6 +97,18 @@ src/
 └── types/
     └── index.ts
 ```
+
+## Environment Variables
+
+| Variable | Required | Description |
+|---|---|---|
+| `OPENAI_API_KEY` | Yes | Powers the ArcBot chat widget (`/api/chat`) |
+
+Set in `.env.local` locally. In Vercel, add via the project's Environment Variables settings.
+
+## ArcBot Chat Widget
+
+A floating **"Talk to Us"** button (bottom-right) opens a 1/4-screen chat panel powered by `gpt-4o-mini`. The bot knows ArcAI's full product catalog, RAG technical stack, and company values. It streams responses in real time and responds in the user's language.
 
 ## Deployment
 
