@@ -65,6 +65,10 @@ Pricing is customized based on each business's needs, data scale, and use case. 
 - Encourage visitors to get in touch if they want to explore how ArcAI can help their specific business case`
 
 export async function POST(request: NextRequest) {
+  if (!process.env.OPENAI_API_KEY) {
+    return new Response('OPENAI_API_KEY is not configured', { status: 503 })
+  }
+
   try {
     const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
     const { messages } = await request.json()
@@ -80,13 +84,18 @@ export async function POST(request: NextRequest) {
     const encoder = new TextEncoder()
     const stream = new ReadableStream({
       async start(controller) {
-        for await (const chunk of openaiStream) {
-          const content = chunk.choices[0]?.delta?.content ?? ''
-          if (content) {
-            controller.enqueue(encoder.encode(content))
+        try {
+          for await (const chunk of openaiStream) {
+            const content = chunk.choices[0]?.delta?.content ?? ''
+            if (content) {
+              controller.enqueue(encoder.encode(content))
+            }
           }
+          controller.close()
+        } catch (streamErr) {
+          console.error('Stream error:', streamErr)
+          controller.error(streamErr)
         }
-        controller.close()
       },
     })
 

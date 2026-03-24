@@ -4,7 +4,9 @@ const withNextIntl = createNextIntlPlugin('./src/i18n.ts')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  serverExternalPackages: ['openai'],
+  experimental: {
+    serverComponentsExternalPackages: ['openai'],
+  },
 }
 
 export default withNextIntl(nextConfig)
